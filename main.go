@@ -73,13 +73,13 @@ func staticRouter(router *gin.Engine) {
 		accountList := map[string]string{
 			username: password,
 		}
-		authorized := router.Group("/", gin.BasicAuth(accountList))
+		authorized := router.Group(*prefix + "/", gin.BasicAuth(accountList))
 		authorized.GET("", func(c *gin.Context) {
 			indexHTML, _ := f.ReadFile("web/dist/" + "index.html")
 			c.Writer.Write(indexHTML)
 		})
 	} else {
-		router.GET("/", func(c *gin.Context) {
+		router.GET(*prefix + "/", func(c *gin.Context) {
 			indexHTML, _ := f.ReadFile("web/dist/" + "index.html")
 			c.Writer.Write(indexHTML)
 		})
