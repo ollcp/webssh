@@ -12,6 +12,7 @@ jobs:
         run: ./localbuild.sh
         
       - name: RPM Build
+        id: rpm
         uses: Antikythera/build-rpm@v1
         with:
           spec_file: webssh.spec
@@ -21,5 +22,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: Binary RPM
-          path: ${{ steps.rpm.outputs.rpm_dir_path }}
+          name: ${{ steps.rpm.outputs.rpm_package_name }}
+          path: ${{ steps.rpm.outputs.rpm_package_path }}
