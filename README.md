@@ -37,3 +37,17 @@ docker运行:
 ```
 docker run -d --net=host --log-driver json-file --log-opt max-file=1 --log-opt max-size=100m --restart always --name webssh -e TZ=Asia/Shanghai -e savePass=true jrohy/webssh
 ```
+
+## nginx proxy
+```
+location /wwssadad/ {
+    proxy_pass http://localhost:5032;
+    proxy_http_version 1.1;
+    proxy_read_timeout 300;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Real-PORT $remote_port;
+}
+```
