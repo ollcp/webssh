@@ -9,7 +9,7 @@ webssh
 
 %install
 mkdir -p %{buildroot}/usr/local/bin
-install -m 755 -t %{buildroot}/usr/local/bin ./webssh_linux_amd64
+install -m 755 -t %{buildroot}/usr/local/bin /github/workspace/webssh_linux_amd64
 
 
 %files
