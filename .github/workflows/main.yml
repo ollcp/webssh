@@ -5,9 +5,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+        
       - name: BUILD
         run: localbuild.sh
+        
       - name: RPM Build
         uses: naveenrajm7/rpmbuild@v1.0.0
         with:
           spec_file: webssh.spec
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: Binary RPM
+          path: ${{ steps.rpm.outputs.rpm_dir_path }}
