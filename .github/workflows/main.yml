@@ -29,3 +29,4 @@ jobs:
         with:
           name: ${{ steps.rpm.outputs.rpm_package_name }}
           path: ${{ steps.rpm.outputs.rpm_package_path }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
