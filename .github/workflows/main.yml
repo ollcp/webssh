@@ -25,7 +25,7 @@ jobs:
           name: ${{ steps.rpm.outputs.rpm_package_name }}
           path: ${{ steps.rpm.outputs.rpm_package_path }}
 
-      - uses: Shopify/upload-to-release@master
+      - uses: Shopify/upload-to-release@v2.0.0
         with:
           name: ${{ steps.rpm.outputs.rpm_package_name }}
           path: ${{ steps.rpm.outputs.rpm_package_path }}
