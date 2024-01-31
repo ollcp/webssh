@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@master
         
       - name: BUILD
-        run: localbuild.sh
+        run: ./localbuild.sh
         
       - name: RPM Build
         uses: Antikythera/build-rpm@v1
