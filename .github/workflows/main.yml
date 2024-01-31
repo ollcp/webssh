@@ -25,8 +25,9 @@ jobs:
           name: ${{ steps.rpm.outputs.rpm_package_name }}
           path: ${{ steps.rpm.outputs.rpm_package_path }}
 
-      - uses: Shopify/upload-to-release@v1
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
         with:
-          name: ${{ steps.rpm.outputs.rpm_package_name }}
-          path: ${{ steps.rpm.outputs.rpm_package_path }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          args: ${{ steps.rpm.outputs.rpm_package_path }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
