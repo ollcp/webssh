@@ -25,8 +25,3 @@ jobs:
           name: ${{ steps.rpm.outputs.rpm_package_name }}
           path: ${{ steps.rpm.outputs.rpm_package_path }}
 
-      - uses: d1ceward/draft-assets-release-action@v2.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          files: |
-            ${{ steps.rpm.outputs.rpm_package_path }}
