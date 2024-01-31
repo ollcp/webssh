@@ -12,7 +12,7 @@ jobs:
         run: localbuild.sh
         
       - name: RPM Build
-        uses: naveenrajm7/rpmbuild@v1.0.0
+        uses: Antikythera/build-rpm@v1
         with:
           spec_file: webssh.spec
           
