@@ -3,7 +3,9 @@ on:
   
 jobs:
   build:
-    runs-on: centos7.9
+    runs-on: ubuntu-latest
+    container:
+      image: "centos:7.9"
     steps:
       - name: Checkout code
         uses: actions/checkout@master
